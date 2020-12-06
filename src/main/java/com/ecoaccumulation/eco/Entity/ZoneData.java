@@ -51,4 +51,13 @@ public class ZoneData {
 		this.cleanlinesPercent = cleanlinesPercent;
 	}
 
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+	
+
 }
