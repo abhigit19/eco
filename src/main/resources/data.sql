@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS inspection (
   inspection_date Date NULL DEFAULT NULL,
   zone_id INT NOT NULL,
   PRIMARY KEY (inspection_id),
-  CONSTRAINT fk_inspection_zone1 FOREIGN KEY (zone_id1) REFERENCES zone_data (zone_id));
+  CONSTRAINT fk_inspection_zone1 FOREIGN KEY (zone_id) REFERENCES zone_data (zone_id));
   
 INSERT INTO city VALUES (1,'Mumbai'),(2,'Banglore');
 INSERT INTO zone_data VALUES (1,49,'Zone 1',1),(2,60,'Zone 2',1),(3,75,'Zone 3',1),(4,68,'Zone 1',2),(5,40,'Zone 2',2),(6,50,'Zone 3',2);

@@ -1,6 +1,8 @@
 package com.ecoaccumulation.eco.service.impl;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +16,18 @@ import com.ecoaccumulation.eco.repo.ZoneRepository;
 public class CleanAndMessiestCityService {
 
 	@Autowired
-	private CleaningRepository cleaningRepository;
+	private CleanlinessDriveService driveService;
 
-	public List<CleanlinessDrive> getAllCleaninessDriveData() {
-		return cleaningRepository.findAll();
+	@Autowired
+	private ZoneService zoneService;
+
+	public ZoneData getCleanistCity() {
+	//	Map<Long,String > mapEPercent= zoneService.getAllZoneData().stream().collect(Collectors.toMap(x->((ZoneData) x).getZoneId(), y ->  driveService.findByZone(y.getZoneId()).get(0).getExpectedPercent()));
+	//	mapEPercent.forEach((K,V) -> System.out.println(K + ", mapEPercent : " + V));	
+		return zoneService.getAllZoneData().get(2);
 	}
-	public void getCleanestCity() {
+
+	public ZoneData getWorstCity() {
+		return zoneService.getAllZoneData().get(4);
 	}
 }

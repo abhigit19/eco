@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecoaccumulation.eco.Entity.CleanlinessDrive;
 import com.ecoaccumulation.eco.Entity.Inspection;
 import com.ecoaccumulation.eco.Entity.ZoneData;
+import com.ecoaccumulation.eco.service.impl.CleanAndMessiestCityService;
 import com.ecoaccumulation.eco.service.impl.CleanlinessDriveService;
 import com.ecoaccumulation.eco.service.impl.InspectionService;
 import com.ecoaccumulation.eco.service.impl.ZoneService;
@@ -25,12 +26,16 @@ public class EcoController {
 	@Autowired 
 	InspectionService inspectionService;
 	
-	@GetMapping("/getZoneData")
+
+	@Autowired 
+	CleanAndMessiestCityService cleanAndMessiestCityService;
+	
+	@GetMapping("/ZoneData")
 	public List<ZoneData> getZoneData() {
 		return zoneService.getAllZoneData();
 	}
 
-	@GetMapping("/getCleanlinessDrive")
+	@GetMapping("/CleanlinessDrive")
 	public List<CleanlinessDrive> getCleanlinessDrive() {
 		return cleanlinessDriveService.getAllCleaninessDriveData();
 	}
@@ -38,5 +43,15 @@ public class EcoController {
 	@GetMapping("/inspection")
 	public List<Inspection> getInspectionData() {
 		return inspectionService.getAllInspectionData();
+	}
+	
+	@GetMapping("/bestCleanCity")
+	public ZoneData getBestCleanCity() {
+		 return cleanAndMessiestCityService.getCleanistCity();
+	}
+	
+	@GetMapping("/worstCleanCity")
+	public ZoneData getWorstCleanCity() {
+		return cleanAndMessiestCityService.getWorstCity();
 	}
 }

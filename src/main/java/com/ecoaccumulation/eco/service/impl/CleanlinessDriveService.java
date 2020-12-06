@@ -19,4 +19,7 @@ public class CleanlinessDriveService {
 	public List<CleanlinessDrive> getAllCleaninessDriveData() {
 		return cleaningRepository.findAll();
 	}
+	public List<CleanlinessDrive> findByZone (long zonId) {
+		return cleaningRepository.findByZoneId(zonId);
+	}
 }
